@@ -11,6 +11,10 @@ const Main = () => {
 
 const Container = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 1000px;
 `;
 
 const MainPage = styled.h1`

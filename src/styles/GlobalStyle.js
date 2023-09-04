@@ -10,15 +10,19 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    width: 100vw;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
     background-color: white;
     transition: background-color 1s ease;
-    font-family: "NEXON Lv1 Gothic OTF"; /* body에 폰트 적용 */
+    font-family: "NEXON Lv1 Gothic OTF";
   }
 
   a {
     text-decoration: none;
+    color: black;
   }
 `;
 
