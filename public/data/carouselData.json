@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "민트 초코",
+    "url": "./images/Carousel/mintchoco.jpg",
+    "explain": "민초 vs 반민초"
+  },
+  {
+    "id": 2,
+    "name": "하반기 아이돌 대전",
+    "url": "./images/Carousel/ive.webp",
+    "explain": "아이브 vs 르세라핌"
+  },
+  {
+    "id": 3,
+    "name": "프로그래밍 언어",
+    "url": "./images/Carousel/computer.jpg",
+    "explain": "JS vs Python"
+  },
+  {
+    "id": 4,
+    "name": "진짜 판다",
+    "url": "./images/Carousel/pandas.jpg",
+    "explain": "자이언트 판다 vs 렛서 판다"
+  }
+]

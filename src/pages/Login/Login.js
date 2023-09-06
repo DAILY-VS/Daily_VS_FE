@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import LoginNav from '../../components/LoginNav/LoginNav';
 
 const Login = () => {
@@ -34,6 +35,12 @@ const Login = () => {
         <LoginSubmitBtn disabled={isValid ? false : true}>
           로그인
         </LoginSubmitBtn>
+        <LoginAsk>
+          아직 로그인 계정이 없으신가요?
+          <LoginToSignup to="/signup">회원가입</LoginToSignup>
+          <SignupPwLine>|</SignupPwLine>
+          <LoginFindPw>비밀번호 찾기</LoginFindPw>
+        </LoginAsk>
       </LoginPage>
     </>
   );
@@ -57,15 +64,59 @@ const LoginIdInput = styled.input`
   width: 300px;
   height: 50px;
   margin-bottom: 10px;
+  font-size: 20px;
+  border: 1px rgba(128, 128, 128, 0.2) solid;
+  background-color: #f4faff;
+  padding-left: 20px;
 `;
 
 const LoginPwInput = styled.input`
   width: 300px;
   height: 50px;
   margin-bottom: 30px;
+  font-size: 20px;
+  border: 1px rgba(128, 128, 128, 0.2) solid;
+  background-color: #f4faff;
+  padding-left: 20px;
 `;
 
 const LoginSubmitBtn = styled.button`
   width: 300px;
   height: 50px;
+  font-size: 20px;
+  color: white;
+  background-color: ${props => (props.disabled ? '#d4d4d4' : '#ff495a')};
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+const LoginAsk = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  font-size: 14px;
+`;
+
+const LoginToSignup = styled(Link)`
+  margin-left: 5px;
+  color: #ff495a;
+  font-weight: bold;
+  &:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+`;
+
+const SignupPwLine = styled.span`
+  margin: auto 3px;
+`;
+
+const LoginFindPw = styled(Link)`
+  color: #457c9e;
+  font-weight: bold;
+  &:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
 `;

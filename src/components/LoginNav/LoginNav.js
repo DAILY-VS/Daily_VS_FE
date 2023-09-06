@@ -33,7 +33,7 @@ const NavBackLogo = styled(Link)`
   align-items: center;
   justify-content: center;
   margin-right: auto;
-  margin-left: 10px;
+  margin-left: 30px;
   &:hover {
     opacity: 0.6;
     cursor: pointer;
