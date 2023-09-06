@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import MainCarousel from './MainCarousel/MainCarousel';
 
 const Main = () => {
   return (
     <Container>
-      <MainPage>메인입니다~</MainPage>
+      <MainPage>
+        <MainCarousel />
+      </MainPage>
     </Container>
   );
 };
