@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
@@ -16,9 +16,7 @@ const MainVoteCard = ({ id, url, name, explain }) => {
 
   return (
     <Container>
-      <VoteImage>
-        <VoteThumnail src={url} alt="투표썸네일" />
-      </VoteImage>
+      <VoteThumnail src={url} alt="투표썸네일" />
       <VoteName>{name}</VoteName>
       <VoteExplanation>{explain}</VoteExplanation>
     </Container>
@@ -28,10 +26,6 @@ const MainVoteCard = ({ id, url, name, explain }) => {
 export default MainVoteCard;
 
 const Container = styled.div`
-  width: 400px;
-`;
-
-const VoteImage = styled.div`
   width: 400px;
 `;
 

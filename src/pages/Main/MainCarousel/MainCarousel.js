@@ -13,8 +13,7 @@ const MainCarousel = ({ loading }) => {
 
   useEffect(() => {
     if (!loading) {
-      // 데이터 로딩이 완료되면 mainVote를 설정
-      fetch('/data/carouselData.json')
+      fetch('/data/vote_list.json')
         .then(response => response.json())
         .then(result => {
           setMainVote(result);
@@ -70,7 +69,6 @@ export default MainCarousel;
 const CarouselSection = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
 `;
 
@@ -78,7 +76,8 @@ const CarouselTopName = styled.h1`
   display: flex;
   justify-content: center;
   font-size: 24px;
-  margin-bottom: 10px;
+  padding-top: 20px;
+  margin-bottom: 20px;
 `;
 
 const SwiperSection = styled.div`

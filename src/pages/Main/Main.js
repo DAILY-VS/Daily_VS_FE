@@ -8,7 +8,7 @@ const Main = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/data/carouselData.json')
+    fetch('/data/vote_list.json')
       .then(response => response.json())
       .then(result => {
         setLoading(false);
@@ -19,7 +19,7 @@ const Main = () => {
     <Container>
       <MainPage>
         <MainCarousel loading={loading} />
-        <MainGrid />
+        <MainGrid loading={loading} />
       </MainPage>
     </Container>
   );
@@ -30,7 +30,8 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 500px;
-  height: 400px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 `;
 
 const MainPage = styled.h1`
