@@ -1,50 +1,66 @@
 import React, { useState, useEffect } from 'react';
-import Slider from 'react-slick';
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import styled from 'styled-components';
+import MainVoteCard from './MainVoteCard';
+import 'swiper/swiper-bundle.min.css';
 
-const StyledSlider = styled(Slider)`
-  .slick-slide {
-    text-align: center;
-  }
+// SwiperCore modules
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
-  img {
-    max-width: 100%;
-  }
-`;
+const MainCarousel = ({ loading }) => {
+  const [mainVote, setMainVote] = useState([]);
 
-const MainCarousel = () => {
-  const [imagesLoaded, setImagesLoaded] = useState(false);
   useEffect(() => {
-    const img = new Image();
-    img.src = './images/Carousel/computer.jpg'; // 이미지 주소를 변경하세요
-    img.onload = () => {
-      setImagesLoaded(true);
-    };
-  }, []);
+    if (!loading) {
+      // 데이터 로딩이 완료되면 mainVote를 설정
+      fetch('/data/carouselData.json')
+        .then(response => response.json())
+        .then(result => {
+          setMainVote(result);
+        });
+    }
+  }, [loading]);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+  const swiperParams = {
+    loop: true,
+    centeredSlides: true, // 중앙 슬라이드를 화면 중앙에 배치
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    autoplay: {
+      delay: 2000,
+    },
   };
+
+  if (loading) return null;
   return (
     <CarouselSection>
-      <h2>Single Item</h2>
-      {imagesLoaded && (
-        <StyledSlider {...settings}>
-          <div>
-            <img src="./images/Carousel/computer.jpg" alt="이미지 1" />
-          </div>
-          <div>
-            <img src="./images/Carousel/ive.webp" alt="이미지 2" />
-          </div>
-          <div>
-            <img src="./images/Carousel/pandas.jpg" alt="이미지 3" />
-          </div>
-        </StyledSlider>
-      )}
+      <CarouselTopName>🔥 HOT 🔥</CarouselTopName>
+      <SwiperSection>
+        <Swiper {...swiperParams}>
+          {mainVote.map(mainVotes => (
+            <SwiperSlide key={mainVotes.id}>
+              <MainVoteCard
+                id={mainVotes.id}
+                name={mainVotes.name}
+                explain={mainVotes.explain}
+                url={mainVotes.url}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <CustomSliderButton>
+          <i className="swiper-button-prev custom-button" />{' '}
+          <i className="swiper-button-next custom-button" />{' '}
+        </CustomSliderButton>
+        {/* 다음 슬라이드로 이동하는 버튼 */}
+      </SwiperSection>
     </CarouselSection>
   );
 };
@@ -53,4 +69,26 @@ export default MainCarousel;
 
 const CarouselSection = styled.div`
   display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+`;
+
+const CarouselTopName = styled.h1`
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+`;
+
+const SwiperSection = styled.div`
+  width: 500px;
+`;
+
+const CustomSliderButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+  i {
+    position: static;
+  }
 `;
