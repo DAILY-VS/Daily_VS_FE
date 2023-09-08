@@ -1,22 +1,19 @@
 import React from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const MainVoteCard = ({ id, url, name, explain }) => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // const onClickTiketingButton = () => {
-  //   navigate(`/ticketing/${id}`);
-  // };
-  // const onClickDetailButton = () => {
-  //   navigate(`/movie-detail/${id}`);
-  // };
+  const onClickDetailButton = () => {
+    navigate(`/vote-detail/${id}`);
+  };
 
   return (
     <Container>
-      <VoteThumnail src={url} alt="투표썸네일" />
+      <VoteThumnail src={url} alt="투표썸네일" onClick={onClickDetailButton} />
       <VoteName>{name}</VoteName>
       <VoteExplanation>{explain}</VoteExplanation>
     </Container>
@@ -27,6 +24,10 @@ export default MainVoteCard;
 
 const Container = styled.div`
   width: 400px;
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 `;
 
 const VoteThumnail = styled.img`

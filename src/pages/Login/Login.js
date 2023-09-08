@@ -53,6 +53,8 @@ const LoginPage = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 500px;
+  margin: 10px auto;
 `;
 
 const LoginLogo = styled.img`
@@ -96,6 +98,7 @@ const LoginAsk = styled.div`
   flex-direction: row;
   margin-top: 20px;
   font-size: 14px;
+  height: 200px;
 `;
 
 const LoginToSignup = styled(Link)`

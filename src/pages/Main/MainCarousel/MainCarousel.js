@@ -89,5 +89,7 @@ const CustomSliderButton = styled.div`
   justify-content: space-between;
   i {
     position: static;
+    margin: -200px 30px 150px 30px;
+    color: #17355a;
   }
 `;

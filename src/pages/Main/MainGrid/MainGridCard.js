@@ -1,9 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const MainGridCard = ({ id, url, name }) => {
+  const navigate = useNavigate();
+  const onClickDetailButton = () => {
+    navigate(`/vote-detail/${id}`);
+  };
   return (
-    <Container>
+    <Container onClick={onClickDetailButton}>
       <GridThumbnail src={url} alt={name} />
       <GridName>{name}</GridName>
     </Container>
@@ -16,6 +21,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 `;
 
 const GridThumbnail = styled.img`

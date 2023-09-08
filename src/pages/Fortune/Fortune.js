@@ -10,4 +10,6 @@ export default Fortune;
 const FortunePage = styled.h1`
   color: purple;
   font-size: 24px;
+  margin-left: auto;
+  margin-right: auto;
 `;

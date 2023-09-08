@@ -30,8 +30,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 500px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: 30px auto 30px auto;
 `;
 
 const MainPage = styled.h1`

@@ -10,10 +10,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 100vw;
     background-color: white;
     transition: background-color 1s ease;
