@@ -17,7 +17,6 @@ const Signup = () => {
     signupGender: '',
   });
   console.log(userSignupInfo);
-  // const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const {
     signupEmail,
     signupID,
@@ -138,7 +137,7 @@ const Signup = () => {
               name="gender"
               value="male"
               checked={selectedGender === 'male'}
-              onChange={e => setSelectedGender('male')}
+              onChange={() => setSelectedGender('male')}
             />
             <GenderLabel htmlFor="male">남성</GenderLabel>
             <GenderRadio
